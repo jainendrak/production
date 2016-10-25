@@ -63,5 +63,6 @@ mysql::db { 'icinga_web':
 class {"icinga::checks" :}
 #class {"commonfirewall::pre" :}
 #class {"postfix" :}
-
+package {"icingaweb2" : ensure => 'installed' }
+package {"icingacli" : ensure => 'installed'}
 }
