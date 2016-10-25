@@ -7,24 +7,24 @@ class{'::icinga':
   enabled_features => ['statusdata', 'compatlog', 'command'],
   require => Class["::epel"]
 }
-class { 'icingaweb2':
+#class { 'icingaweb2':
 ## backend database
-dbhost     => 'localhost',
-dbtype     => 'mysql',
-dbname     => 'icinga',
-dbuser     => 'icinga',
-dbpasswd   => 'icinga',
+#dbhost     => 'localhost',
+#dbtype     => 'mysql',
+#dbname     => 'icinga',
+#dbuser     => 'icinga',
+#dbpasswd   => 'icinga',
 #dbame      => 'icinga',
 ## frontend database
-   dbwebtype   => 'mysql',
-   dbwebhost   => 'localhost',
-   dbwebport   => '3306',
-   dbwebuser   => 'icinga_web',
-   dbwebpasswd => 'icinga_web',
-   dbwebname   => 'icinga_web',
+#   dbwebtype   => 'mysql',
+#   dbwebhost   => 'localhost',
+#   dbwebport   => '3306',
+#   dbwebuser   => 'icinga_web',
+#   dbwebpasswd => 'icinga_web',
+#   dbwebname   => 'icinga_web',
 ## modules list
-   modules     => ['monitoring']
-}
+#   modules     => ['monitoring']
+#}
 
 class{'::icinga::webgui':
   initdb              => false,    
