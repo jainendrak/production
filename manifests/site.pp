@@ -5,6 +5,7 @@ class{'::icinga':
   initdb           => true,
   with_classicui   => false,
   enabled_features => ['statusdata', 'compatlog', 'command'],
+  require => Class["::epel"]
 }
 class { 'icingaweb2':
 ## backend database
@@ -54,8 +55,8 @@ mysql::db { 'icinga_web':
   host     => 'localhost',
   grant    => ['ALL'],
 }
-#class {"icinga::checks" :}
+class {"icinga::checks" :}
 #class {"commonfirewall::pre" :}
-class {"postfix" :}
+#class {"postfix" :}
 
 }
