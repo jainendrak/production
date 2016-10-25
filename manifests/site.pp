@@ -1,11 +1,16 @@
 node default {
-class{'::epel':}
+package {"epel-release" :
+      ensure => present,
+}
+class { 'selinux':
+ mode => 'permissive'
+}
 
 class{'::icinga':
   initdb           => true,
   with_classicui   => false,
   enabled_features => ['statusdata', 'compatlog', 'command'],
-  require => Class["::epel"]
+  require => Package["epel-release"],
 }
 #class { 'icingaweb2':
 ## backend database
