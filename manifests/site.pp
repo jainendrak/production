@@ -2,9 +2,9 @@ node default {
 package {"epel-release" :
       ensure => present,
 }
-class { 'selinux':
- mode => 'permissive'
-}
+#class { 'selinux':
+# mode => 'permissive'
+#}
 
 class{'::icinga':
   initdb           => true,
@@ -62,7 +62,7 @@ mysql::db { 'icinga_web':
 }
 class {"icinga::checks" :}
 #class {"commonfirewall::pre" :}
-#class {"postfix" :}
+class {"postfix" :}
 package {"icingaweb2" : ensure => 'installed' }
 package {"icingacli" : ensure => 'installed'}
 }

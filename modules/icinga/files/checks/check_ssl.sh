@@ -1,11 +1,9 @@
+#/bin/bash
 url=$1
 a=$(curl -v --silent "$url" --stderr - | grep expire | awk '{print $4,$5,$7}')
 b=$(echo "$a" | cut -c1-3)
 c=$(echo "$a" | cut -c5-6)
 d=$(echo "$a" | cut -c8-11)
-#echo "$b"
-
-
 case $b in
      Jan)
           dat=$(echo "$d"-"01"-"$c")
@@ -43,7 +41,6 @@ case $b in
      Dec)
         dat=$(echo "$d"-"12"-"$c")
          ;;
-
 esac
 
 #echo "$dat"
@@ -63,3 +60,4 @@ else
 echo "SSL CERT IS EXPIRING IN 7 DAYS or LESS "
 exit 2
 fi
+
