@@ -28,8 +28,4 @@ class icinga::checks {
 		source => "/etc/puppetlabs/code/environments/production/modules/icinga/files/php.ini"
 		
 }
-	file {"/var/spool/icinga2/cmx-tools-synthetic-tran-4.0.2.53-jar-with-dependencies.jar":
-		ensure => "present",
-		source => "/etc/puppetlabs/code/environments/production/modules/icinga/files/cmx-tools-synthetic-tran-4.0.2.53-jar-with-dependencies.jar"	
-}
 }
