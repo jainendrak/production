@@ -55,9 +55,11 @@ class icinga (
   if ($with_backend) {
     case $::operatingsystem {
       'RedHat', 'CentOS', 'Ubuntu': {
-        Class[icinga::repo]      -> Class[icinga::package]
-        Class[icinga::package]   -> Class[icinga::configure]
-        Class[icinga::configure] -> Class[icinga::service]
+        Class[icinga::repo]      ~> Class[icinga::package]
+        Class[icinga::package]   ~> Class[icinga::configure]
+#	Class[icinga::configure] ~> Class[icinga::common::initdb]
+#        Class[icinga::common::initdb] ~> Class[icinga::service]
+	Class[icinga::configure] ~> Class[icinga::service]
         
         class { 'icinga::package': }
         class { 'icinga::service': }

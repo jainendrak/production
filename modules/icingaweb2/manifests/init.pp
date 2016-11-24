@@ -53,18 +53,17 @@ class icingaweb2 (
   $modules     = $icingaweb2::params::modules
 ) inherits icingaweb2::params {
 
-#  case $osfamily {
-#    'RedHat': {
-#      
-#      Class[icingaweb2::yumrepo] -> Class[icingaweb2::package] -> Class[icingaweb2::configure] -> Class[icingaweb2::modules]
-#
-#      class{ 'icingaweb2::yumrepo': }
-#      class{ 'icingaweb2::package': }
-#      class{ 'icingaweb2::configure': }
-#      class{ 'icingaweb2::modules': }
-#    }
-#    
-#    default: { fail("Currently unavailable for ${osfamily}") }
-#  }
-  
+  case $osfamily {
+    'RedHat': {
+
+      Class[icingaweb2::package] -> Class[icingaweb2::configure] -> Class[icingaweb2::modules]
+
+      class{ 'icingaweb2::package': }
+      class{ 'icingaweb2::configure': }
+      class{ 'icingaweb2::modules': }
+    }
+
+    default: { fail("Currently unavailable for ${osfamily}") }
+  }
+
 }

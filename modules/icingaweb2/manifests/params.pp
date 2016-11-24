@@ -2,9 +2,9 @@ class icingaweb2::params {
   $dbwebtype                    = 'mysql'
   $dbwebhost                    = 'localhost'
   $dbwebport                    = '3306'
-  $dbwebuser                    = 'icinga_web'
-  $dbwebpasswd                  = 'icinga_web'
-  $dbwebname                    = 'icinga_web'
+  $dbwebuser                    = 'root'
+  $dbwebpasswd                  = 'strongpassword'
+  $dbwebname                    = 'icingaweb2'
 
   $dbtype                       = 'mysql'
   $dbhost                       = 'localhost'
@@ -18,9 +18,9 @@ class icingaweb2::params {
   $conf_mod_dir                 = "${default_confdir}/enabledModules"
   $modules                      = []
 
-  $module_files                   = {'monitoring' => ['backends','config','instances']}
-  
-  $conf_files                   = ['authentication', 'config', 'resources', 'roles']
+  $module_files                   = {'monitoring' => ['backends','config','commandtransports']}
+
+  $conf_files                   = ['authentication', 'config', 'resources', 'roles', 'groups']
   $mysql_packages               = ['php-mysql', 'php-ZendFramework-Db-Adapter-Pdo-Mysql']
   $pgsql_packages               = ['php-pgsql', 'php-ZendFramework-Db-Adapter-Pdo-Pgsql']
 }
