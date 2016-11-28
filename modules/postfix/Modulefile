@@ -1,8 +1,0 @@
-name 'postfix'
-version '1.0'
-source ''
-author ''
-license ''
-summary 'postfix Module'
-description 'postfix'
-project_page ''
